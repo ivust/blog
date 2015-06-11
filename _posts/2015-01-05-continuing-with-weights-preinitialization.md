@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Weights preinitialization in a ConvNet"
+title:  "Continuing with weights preinitialization"
 date:   2015-01-05 18:55:00
 ---
 
