@@ -41,3 +41,40 @@ for next_feature_map in range(20):
   new_w[next_feature_map][0] = W[:,next_feature_map].reshape(5, 5) 
 w.set_value(new_w) # Update weights
 {% endhighlight %}
+
+The second layer is preinitialized in the same way with the only difference that input is not a single image but a set of feature maps:
+
+{% highlight python %}
+# Function to compute output of the first layer (20 feature maps)
+first_layer_output_function = theano.function(inputs=[X], outputs=l1, allow_input_downcast=True)
+first_layer_output = first_layer_output_function(trX)
+
+# Initialize matrix of samples from the first layer output. For each image in the training set
+# 5 patches of size 5x5 are made in each of the 20 feature maps 
+samples_20x5x5 = np.zeros((len(trX) * 5, 20*5*5))
+
+for image in range(len(trX)): # Loop over first layer output produced by each of the images in the training set
+  for patch_index in range(5): # 5 patches for each image in each feature map
+    sample = np.array([[]]) # Initialize vector for a current sample (will be of length 20x5x5)
+    for feature_map in range(20):
+      (center_x, center_y) = np.random.randint(2, 10, size=2) # Choose random center of a patch
+      patch = first_layer_output[image][feature_map][center_x-2:center_x+3, center_y-2:center_y+3]
+      patch = patch.reshape(1, 5*5)
+
+      # Add samples from each of the features maps together to make a 20x5x5 input space to the next layer
+      sample = np.concatenate((sample, patch), axis=1) 
+    samples_20x5x5[image*patch_index] = sample
+cov_samples = np.cov(samples_20x5x5.transpose()) # Covariance matrix of the input to the next layer
+(U, d, W) = np.linalg.svd(cov_samples) # SVD to compute the eigenbasis
+new_w = np.zeros((50, 20, 5, 5))
+for next_feature_map in range(50):
+  # Set weights to each of a feature maps in the next layer to a corresponding principal component
+  new_w[next_feature_map] = W[:, next_feature_map].reshape(20, 5, 5)
+w2.set_value(new_w) # Update the weights
+{% endhighlight %}
+
+By default, all the weights are preinitialized with random numbers drawn from a normal distribution with zero mean and variance of 0.01.The preinitialization by computing the PCA tranformations improves the performance of the network. Below is the plot showing the test error against the nuber of training epochs with two, one or none of the convolutional layers preinitialized with PCA.
+
+![]({{ site.url }}{{ site.baseurl }}/images/plot1.png)
+
+
