@@ -18,6 +18,6 @@ In practice, if we have a matrix of observations $$X$$, each row of which is an 
 
 The specific neural network architecture that I used to try weights preinitialization is called convolutional neural network.
 
-![]({{ site.url }}/{{ site.baseurl }}images/cnn_architecture.jpg)
+![]({{ site.url }}/{{ site.baseurl }}/images/cnn_architecture.jpg)
 
 Each neuron in the following layer receives input from a subset of units in the previous layer weights of connections are the same for any location of the neuron. So we scan the input image with this filter and get activations of the next layer. We may want to have different filters to extract different features from an image therefore forming several transformed images which are called feature maps. If input is not an image (like the input to the first layer) but a set of features maps, then each neuron receives input from all the feature maps in the previous layer. That is, if the filter size is k×k and there are n feature maps, then each neuron in each of the feature maps in the following layer receives input from n×k× k neurons. Each image in the training set produces activations of n feature maps in the previous layer and those activations can be cut into multiple patches of size k×k to make samples which are input to the following convolutional layer. And using those samples we can compute the PCA transformations and preinitialize the weights.
