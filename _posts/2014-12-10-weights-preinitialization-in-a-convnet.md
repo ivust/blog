@@ -75,6 +75,6 @@ w2.set_value(new_w) # Update the weights
 
 By default, all the weights are preinitialized with random numbers drawn from a normal distribution with zero mean and variance of 0.01.The preinitialization by computing the PCA tranformations improves the performance of the network. Below is the plot showing the test error against the nuber of training epochs with two, one or none of the convolutional layers preinitialized with PCA.
 
-![]({{ site.url }}{{ site.baseurl }}/images/plot1.png)
+![]({{ site.url }}{{ site.baseurl }}/images/plot_1.png)
 
 
