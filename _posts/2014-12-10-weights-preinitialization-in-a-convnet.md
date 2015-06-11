@@ -25,3 +25,19 @@ Each neuron in the following layer receives input from a subset of units in the 
 **Experiments**
 
 I used a convolutional network with 2 convolutional layers of 20 and 50 feature maps respectively and the filter size of $$5 \times 5$$. Each convolutional layer is followed by the max-pooling layer over a $$2 \times 2$$ region. The code I used is based on [this](https://github.com/Newmu/Theano-Tutorials/blob/master/5_convolutional_net.py) implementation of convolutional net. The preinitialization of the first layer is implemented as described above:
+
+{% highlight python %}
+for image in range(len(trX)): # Iterate over all images in the training set
+  for patch_index in range(10): # Ten samples per each images
+    (center_x, center_y) = np.random.randint(2, 26, size=2) # Choose center of the sample randomly
+    patch = trX[image][0][center_x-2:center_x+3, center_y-2:center_y+3] # Make a 5x5 patch
+    patch = patch.reshape(1, 5*5) # Reshape into a vector
+    samples_5x5[image*patch_index] = patch # Add to a matrix of samples
+cov_samples = np.cov(samples_5x5.transpose()) # Covariance matrix
+(U, d, W) = np.linalg.svd(cov_samples) # SVD of a covariance to compute transformation to a eigenbasis
+new_w = np.zeros((20, 1, 5, 5)) # Initialize new weights
+for next_feature_map in range(20):
+  # Set weights to each of a feature maps in the next layer to a corresponding principal component
+  new_w[next_feature_map][0] = W[:,next_feature_map].reshape(5, 5) 
+w.set_value(new_w) # Update weights
+{% endhighlight %}
