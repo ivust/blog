@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Switching to CIFAR dataset"
+comments: true
 date:   2015-01-28 10:11:00
 ---
 
