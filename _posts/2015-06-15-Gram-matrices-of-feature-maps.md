@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Slowness learning"
+title:  "Gram matrices of feature maps"
 comments: true
 date:   2015-06-15 22:51:00
 ---
