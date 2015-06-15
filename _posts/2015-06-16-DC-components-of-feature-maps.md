@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Gram matrices of feature maps"
+title:  "DC components of feature maps"
 comments: true
-date:   2015-06-15 22:51:00
+date:   2015-06-16 01:01:00
 ---
 
 In this experiment we computed the slowness of DC components (means of feature) of all convolutional layers. The Euclidean distances are the following:
