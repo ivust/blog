@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Slowness learning"
-comment: true
+comments: true
 date:   2015-06-15 22:07:00
 ---
 
@@ -16,5 +16,7 @@ One such function could be the class labels outputs, which are forced to be equa
 After showing 2.56 million images (256 iterations of 10 batches of 1000 image each) the receptive fieds in conv1 looked like this:
 
 ![]({{ site.url }}{{ site.baseurl }}/images/slowness_iter256.png)
+
+The noticable problems with these receptive fields are the absence of diagonal-like filters and high-spatial-frequency filters.
 
 We also tried different labels assignments (for a given label finding an movie which prdocues highest activation, for example) and different number of labels (100 and 500), but the results were not any better.
