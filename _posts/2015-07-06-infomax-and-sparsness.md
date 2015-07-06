@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Infomax and sparsness"
+title:  "Infomax and sparseness"
 comments: true
 excerpt_separator: <!--more-->
 date:   2015-07-06 23:48:00
