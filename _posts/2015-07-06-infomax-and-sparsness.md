@@ -2,7 +2,6 @@
 layout: post
 title:  "Infomax and sparseness"
 comments: true
-excerpt_separator: <!--more-->
 date:   2015-07-06 23:48:00
 ---
 
@@ -12,9 +11,17 @@ I considered two nets of that architecture: one was trained just like any regula
 
 <!--more-->
 
-First I computed the Gaussian entropies of vectors of mean feature maps of pool layers for those two nets. The one trained with mean features computed during training (on the picture are the log-eigenvalue spectra; the Gaussian entropy is the sum of those values):
+First I computed the Gaussian entropies of vectors of mean feature maps of pool layers for those two nets. The one trained with mean features computed during training has the following log-eigenvalue spectra (the Gaussian entropy is the sum of those values):
 
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/mean2.png)
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/mean3.png)
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/mean4.png)
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/mean5.png)
+
+And those are for the net trained as usual:
+
+![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool1.png)
+![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool2.png)
+![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool3.png)
+![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool4.png)
+![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool5.png)
