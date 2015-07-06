@@ -30,7 +30,7 @@ And those are for the net trained as usual:
 
 ## Sparseness
 
-To estimate the sparseness of mean feature maps, I computed the ratio of $$ L_1 $$ norm to $$ L_2 $$ (the close this ration to one, the sparser the activations) and their entropy. Fisrt, for the net train with mean feature maps:
+To estimate the sparseness of mean feature maps, I computed the ratio of the $$ L_1 $$ norm to the $$ L_2 $$ norm (the close this ration to one, the sparser the activations) and their entropy. Fisrt, for the net train with mean feature maps:
 
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/mean_l1l2.png)
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/mean_entropy.png)
