@@ -11,6 +11,8 @@ I considered two nets of that architecture: one was trained just like any regula
 
 <!--more-->
 
+## Infomax
+
 First I computed the Gaussian entropies of vectors of mean feature maps of pool layers for those two nets. The one trained with mean features computed during training has the following log-eigenvalue spectra (the Gaussian entropy is the sum of those values):
 
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/mean2.png)
@@ -25,3 +27,16 @@ And those are for the net trained as usual:
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool3.png)
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool4.png)
 ![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool5.png)
+
+## Sparseness
+
+To estimate the sparseness of mean feature maps, I computed the ratio of $$ L_1 $$ norm to $$ L_2 $$ (the close this ration to one, the sparser the activations) and their entropy. Fisrt, for the net train with mean feature maps:
+
+![]({{ site.url }}{{ site.baseurl }}/images/infomax/mean_l1l2.png)
+![]({{ site.url }}{{ site.baseurl }}/images/infomax/mean_entropy.png)
+
+And for the regular net:
+
+![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool_l1l2.png)
+![]({{ site.url }}{{ site.baseurl }}/images/infomax/pool_entropy.png)
+
