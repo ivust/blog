@@ -5,7 +5,7 @@ comments: true
 date:   2015-07-29 21:36:00
 ---
 
-I started training a one-layer ConvNet using Infomax on actual activations and not on the mean feature maps. If there are $$ k $$ feature maps in a given layer of size $$ n \times n $$, then we consider vectors of dimensionality $$ k $$, each element of which is an activation in a corresponding feature map located at the same position. In that case we get $$ b \times n \times n $$ ($$ b $$ is the batch size) vectors to estimate the covariance matrix $$ C $$.
+I started training a one-layer ConvNet using Infomax on actual activations and not on the mean feature maps. If there are $$ k $$ feature maps in a given layer of size $$ n \times n $$, then we consider vectors of dimensionality $$ k $$. Each element of such vector is an activation in a corresponding feature map located at the same position across the feature maps. In that case we get $$ b \times n \times n $$ ($$ b $$ is the batch size) vectors to estimate the covariance matrix $$ C $$.
 
 The objective functions is then 
 
