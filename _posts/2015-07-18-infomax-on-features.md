@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Infomax on actual features"
+title:  "Infomax on actual activations (evaluation of the objective)"
 comments: true
 date:   2015-07-18 01:27:00
 ---

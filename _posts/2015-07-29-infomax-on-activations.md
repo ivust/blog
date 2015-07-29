@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Infomax on actual activations"
+title:  "Infomax on actual activations (learning)"
 comments: true
 date:   2015-07-29 21:36:00
 ---
