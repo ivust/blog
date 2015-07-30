@@ -5,7 +5,7 @@ baseurl: "/blog" # the subpath of your site, e.g. /blog/
 url: "http://ivust.com" # the base hostname & protocol for your site
 excerpt_separator: <!--more-->
 paginate: 5
-paginate_path: "/blog/page:num/"
+paginate_path: "/page:num/"
 
 # Build settings
 markdown: kramdown
