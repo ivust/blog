@@ -13,3 +13,4 @@ For a fully trained VGG-network, conv1_1, conv1_2 and pool1 look like this:
 ![]({{ site.url }}{{ site.baseurl }}/images/vgg3/actual2.png)
 ![]({{ site.url }}{{ site.baseurl }}/images/vgg3/actual3.png)
 
+For the 
